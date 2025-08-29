@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>Hhhvvb的博客</title>
+        <title>Firevsice</title>
         <subtitle>Hhhvvb的博客</subtitle>
         <icon>http://example.com/images/favicon.ico</icon>
         <link>http://example.com</link>
         <author>
-          <name>John Doe</name>
+          <name>Hhhvvb</name>
         </author>
         <description>Hhhvvb的博客</description>
-        <language>en</language>
+        <language>zh-CN</language>
         <pubDate>Fri, 29 Aug 2025 19:36:13 +0800</pubDate>
         <lastBuildDate>Fri, 29 Aug 2025 19:36:13 +0800</lastBuildDate>
         <category term="博客" />
