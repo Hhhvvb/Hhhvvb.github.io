@@ -7,6 +7,18 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2025/10/01/advice/",
+            "url": "http://example.com/2025/10/01/advice/",
+            "title": "关于厦门理工学院大一备战算法竞赛的一些建议",
+            "date_published": "2025-10-01T11:51:22.000Z",
+            "content_html": "<h2 id=\"前言\"><a class=\"anchor\" href=\"#前言\">#</a> 前言</h2>\n<h4 id=\"本文由厦门理工学院2024级若干位算法爱好者共同编写-如有不足之处欢迎指出\"><a class=\"anchor\" href=\"#本文由厦门理工学院2024级若干位算法爱好者共同编写-如有不足之处欢迎指出\">#</a> 本文由厦门理工学院 2024 级若干位算法爱好者共同编写，如有不足之处欢迎指出.</h4>\n<h2 id=\"正文\"><a class=\"anchor\" href=\"#正文\">#</a> 正文</h2>\n<h4 id=\"厦门理工学院大一打算法路线\"><a class=\"anchor\" href=\"#厦门理工学院大一打算法路线\">#</a> 厦门理工学院大一打算法路线</h4>\n<ol>\n<li>学校新手村<strong>尽早</strong>把 100 题全部刷完，大多数题要各位<strong>自己做出来</strong> (培养你们前期思维能力) 但有些题有些像质数筛或者 bfs 涵盖一些<strong>算法知识</strong>的题可以去查 ai 或者浏览引擎上搜，期间如果觉得 C 语言已经比较熟练后可以去<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMVVFNDExajdUaS8/c3BtX2lkX2Zyb209MzMzLjMzNy5zZWFyY2gtY2FyZC5hbGwuY2xpY2smYW1wO3ZkX3NvdXJjZT1jZWNjYWUxYzM3ZmY5N2VjMGQyMzM5NmRkNDA2NTBkYw==\"> C 语言 转 C++ 简单教程</span>用两个小时的时间入门 C<ins> 的<strong> STL</strong> 库以及其他语法，不用系统学 C</ins>，看完这个视频在前期基本够用，后期碰到不会再单独去学。</li>\n<li>新手村刷完后会对 C 和算法有一定的理解，之后可以开始<strong>系统学习算法</strong>，这里推荐去<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuYWN3aW5nLmNvbS8=\"> AcWing</span> 里报名算法基础课，视频总长度大概四十五个小时，<strong>12 月份</strong>会有蓝桥杯选拔赛，差不多要在选拔赛前学个大概，建议你们在选拔赛<strong>前两周</strong>去 codeforces 上狂刷 div3 前 5 题和 div4 除去最后一题锻炼你们的思维能力。新生选拔赛你们大一单独排，在大一里面排名靠前就可以报销蓝桥杯省赛报名费。<strong>选拔赛过后</strong>就可以把 acwing 上的基础课全部<strong>刷完</strong>，期间也可以开始接触<span class=\"exturl\" data-url=\"aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS8=\"> codeforces</span> 和<span class=\"exturl\" data-url=\"aHR0cHM6Ly9hdGNvZGVyLmpwLyVFNCVCOCU4QSVFNyU5QSU4NCVFNiVBRiU5NCVFOCVCNSU5Qg==\"> atcoder</span> (关于 codeforces 和 atcoder 你们后面可以自行百度详细了解，也可以点<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWFDNHkxZDdWSy8/c3BtX2lkX2Zyb209MzMzLjMzNy5zZWFyY2gtY2FyZC5hbGwuY2xpY2smYW1wO3ZkX3NvdXJjZT1jZWNjYWUxYzM3ZmY5N2VjMGQyMzM5NmRkNDA2NTBkYw==\"> cf</span> 和<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWdINHkxRTdaNy8/c3BtX2lkX2Zyb209MzMzLjMzNy5zZWFyY2gtY2FyZC5hbGwuY2xpY2smYW1wO3ZkX3NvdXJjZT1jZWNjYWUxYzM3ZmY5N2VjMGQyMzM5NmRkNDA2NTBkYw==\"> atc</span> 初略了解)。</li>\n<li>AcWing 上的算法基础课刷完后，可以选择去速通 AcWing 上的算法提高课或者<span class=\"exturl\" data-url=\"aHR0cHM6Ly9sZWV0Y29kZS5jbi9kaXNjdXNzL3Bvc3QvMzE0MTU2Ni9ydS1oZS1rZS14dWUtc2h1YS10aS1ieS1lbmRsZXNzY2hlbmctcTN5ZC8=\"> leetcode 灵神题单</span>，期间也要<strong>保持一定频率的实时参与 (rp) 比赛</strong>。等刷完提高课或大部分 leetcode 题单后此时你们一定对算法有了自己一定的理解，就不用我们带路了，但建议依然保持一定频率的实时参与，赛时看过的题目并有一定思考的再考虑补题，还有记住碰到不会的题<strong>尽量去查去学会它</strong>，问 AI 查百度逛博客园去 b 站找视频（灵茶山艾府，董晓，左程云等等）都可以只要你们能理解就行，如果真的真的花了一天还是不能理解就先放一放，过段时间或许你就理解了 (当然特别偏特别怪不常见的题先不管)。</li>\n<li>最后欢迎大家加入我们学校的<strong>算法交流群：1051786877</strong>, 我们一起进步不用担心暂时实力低而不好意思，各位学长都很热情里面也会有近期比赛的通知。</li>\n</ol>\n",
+            "tags": [
+                "建议",
+                "学习",
+                "路线"
+            ]
+        },
+        {
             "id": "http://example.com/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/",
             "url": "http://example.com/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/",
             "title": "2023南京R-G",
