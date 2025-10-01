@@ -3,8 +3,8 @@
     <channel>
         <title>Firevsice</title>
         <subtitle>Hhhvvb的博客</subtitle>
-        <icon>http://example.com/images/favicon.ico</icon>
-        <link>http://example.com</link>
+        <icon>https://hhhvvb.github.io/images/favicon.ico</icon>
+        <link>https://hhhvvb.github.io</link>
         <author>
           <name>Hhhvvb</name>
         </author>
@@ -15,12 +15,12 @@
         <category term="博客" />
         <category term=" 笔记" />
         <item>
-            <guid isPermalink="true">http://example.com/2025/10/01/advice/</guid>
+            <guid isPermalink="true">https://hhhvvb.github.io/2025/10/01/advice/</guid>
             <title>关于厦门理工学院大一备战算法竞赛的一些建议</title>
-            <link>http://example.com/2025/10/01/advice/</link>
-            <category term="建议" scheme="http://example.com/categories/%E5%BB%BA%E8%AE%AE/" />
-            <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/" />
-            <category term="路线" scheme="http://example.com/tags/%E8%B7%AF%E7%BA%BF/" />
+            <link>https://hhhvvb.github.io/2025/10/01/advice/</link>
+            <category term="建议" scheme="https://hhhvvb.github.io/categories/%E5%BB%BA%E8%AE%AE/" />
+            <category term="学习" scheme="https://hhhvvb.github.io/tags/%E5%AD%A6%E4%B9%A0/" />
+            <category term="路线" scheme="https://hhhvvb.github.io/tags/%E8%B7%AF%E7%BA%BF/" />
             <pubDate>Wed, 01 Oct 2025 19:51:22 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h2&gt;
 &lt;h4 id=&#34;本文由厦门理工学院2024级若干位算法爱好者共同编写-如有不足之处欢迎指出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#本文由厦门理工学院2024级若干位算法爱好者共同编写-如有不足之处欢迎指出&#34;&gt;#&lt;/a&gt; 本文由厦门理工学院 2024 级若干位算法爱好者共同编写，如有不足之处欢迎指出.&lt;/h4&gt;
@@ -35,13 +35,13 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/</guid>
+            <guid isPermalink="true">https://hhhvvb.github.io/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/</guid>
             <title>2023南京R-G</title>
-            <link>http://example.com/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/</link>
-            <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/" />
-            <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/" />
-            <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" />
-            <category term="贪心" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83/" />
+            <link>https://hhhvvb.github.io/2025/09/03/2023%E5%8D%97%E4%BA%ACR-G/</link>
+            <category term="算法" scheme="https://hhhvvb.github.io/categories/%E7%AE%97%E6%B3%95/" />
+            <category term="算法" scheme="https://hhhvvb.github.io/tags/%E7%AE%97%E6%B3%95/" />
+            <category term="动态规划" scheme="https://hhhvvb.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" />
+            <category term="贪心" scheme="https://hhhvvb.github.io/tags/%E8%B4%AA%E5%BF%83/" />
             <pubDate>Wed, 03 Sep 2025 23:33:35 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubHVvZ3UuY29tLmNuL3Byb2JsZW0vUDEzOTU3&#34;&gt;ICPC 2023 Nanjing R-G 题&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;简要思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简要思路&#34;&gt;#&lt;/a&gt; 简要思路&lt;/h2&gt;
@@ -57,13 +57,13 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2025/09/01/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/</guid>
+            <guid isPermalink="true">https://hhhvvb.github.io/2025/09/01/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/</guid>
             <title>关于双连通分量中桥的用法</title>
-            <link>http://example.com/2025/09/01/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/</link>
-            <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/" />
-            <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/" />
-            <category term="tarjan" scheme="http://example.com/tags/tarjan/" />
-            <category term="图论" scheme="http://example.com/tags/%E5%9B%BE%E8%AE%BA/" />
+            <link>https://hhhvvb.github.io/2025/09/01/%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/</link>
+            <category term="算法" scheme="https://hhhvvb.github.io/categories/%E7%AE%97%E6%B3%95/" />
+            <category term="算法" scheme="https://hhhvvb.github.io/tags/%E7%AE%97%E6%B3%95/" />
+            <category term="tarjan" scheme="https://hhhvvb.github.io/tags/tarjan/" />
+            <category term="图论" scheme="https://hhhvvb.github.io/tags/%E5%9B%BE%E8%AE%BA/" />
             <pubDate>Mon, 01 Sep 2025 00:09:50 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlZm9yY2VzLmNvbS9jb250ZXN0LzIxMzIvcHJvYmxlbS9G&#34;&gt;例题: Codeforces Round 1043 (Div.3) F&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;简述思路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简述思路&#34;&gt;#&lt;/a&gt; 简述思路&lt;/h2&gt;
