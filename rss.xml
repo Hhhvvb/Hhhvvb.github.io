@@ -10,10 +10,84 @@
         </author>
         <description>Hhhvvb的博客</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 01 Oct 2025 19:51:22 +0800</pubDate>
-        <lastBuildDate>Wed, 01 Oct 2025 19:51:22 +0800</lastBuildDate>
+        <pubDate>Sat, 02 May 2026 19:49:38 +0800</pubDate>
+        <lastBuildDate>Sat, 02 May 2026 19:49:38 +0800</lastBuildDate>
         <category term="博客" />
         <category term=" 笔记" />
+        <item>
+            <guid isPermalink="true">https://hhhvvb.github.io/2026/05/02/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-JavaScript-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</guid>
+            <title>彻底搞懂 JavaScript 原型与原型链</title>
+            <link>https://hhhvvb.github.io/2026/05/02/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-JavaScript-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
+            <category term="前端" scheme="https://hhhvvb.github.io/categories/%E5%89%8D%E7%AB%AF/" />
+            <category term="JavaScript" scheme="https://hhhvvb.github.io/tags/JavaScript/" />
+            <category term="前端" scheme="https://hhhvvb.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+            <pubDate>Sat, 02 May 2026 19:49:38 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;告别克苏鲁神话彻底搞懂-javascript-原型与原型链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#告别克苏鲁神话彻底搞懂-javascript-原型与原型链&#34;&gt;#&lt;/a&gt; 告别 “克苏鲁神话”：彻底搞懂 JavaScript 原型与原型链&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 JavaScript 的学习路径上，原型（Prototype）和原型链（Prototype Chain）被戏称为 “前端克苏鲁”。尤其是当  &lt;code&gt;Object&lt;/code&gt;  和  &lt;code&gt;Function&lt;/code&gt;  纠缠在一起时，那种 “鸡生蛋、蛋生鸡” 的逻辑常让初学者大脑宕机。&lt;/p&gt;
+&lt;p&gt;作为一个习惯了 C++ 严格类继承的开发者，在面对 JS 这种基于 “委托” 的动态系统时，我们需要一套清晰的底层逻辑。本文将通过两个核心概念和两条终极规律，帮你彻底拆解原型链。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;一-__proto__-与-prototype&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-__proto__-与-prototype&#34;&gt;#&lt;/a&gt; 一、  &lt;code&gt;__proto__&lt;/code&gt;  与  &lt;code&gt;prototype&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;搞混原型链的根本原因，是没分清这两个长得极像的属性。&lt;/p&gt;
+&lt;h3 id=&#34;1-__proto__-隐式原型-找爹用的&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-__proto__-隐式原型-找爹用的&#34;&gt;#&lt;/a&gt; 1.  &lt;code&gt;__proto__&lt;/code&gt;  (隐式原型 - 找爹用的)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;谁有？&lt;/strong&gt; 几乎所有对象都有（包括函数）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;干嘛的？&lt;/strong&gt; 它是对象的 “寻祖指针”。当你访问一个属性但对象本身没有时，JS 引擎会顺着  &lt;code&gt;__proto__&lt;/code&gt;  去上级原型对象里找。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指向谁？&lt;/strong&gt; 指向&lt;strong&gt;创建该对象的构造函数&lt;/strong&gt;的  &lt;code&gt;prototype&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-prototype-显式原型-给儿子的遗产&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-prototype-显式原型-给儿子的遗产&#34;&gt;#&lt;/a&gt; 2.  &lt;code&gt;prototype&lt;/code&gt;  (显式原型 - 给儿子的遗产)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;谁有？&lt;/strong&gt; 只有&lt;strong&gt;函数&lt;/strong&gt;（Function）才有。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;干嘛的？&lt;/strong&gt; 它是构造函数为其实例准备的 “公共仓库”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指向谁？&lt;/strong&gt; 指向该函数的原型对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;二-原型链的闭环法则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-原型链的闭环法则&#34;&gt;#&lt;/a&gt; 二、 原型链的闭环法则&lt;/h2&gt;
+&lt;p&gt;如果你能理解下面这两条总结，JS 原型链对你来说就不再有秘密：&lt;/p&gt;
+&lt;h3 id=&#34;1-原型链的终点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-原型链的终点&#34;&gt;#&lt;/a&gt; 1. 原型链的终点&lt;/h3&gt;
+&lt;p&gt;所有的对象都有  &lt;code&gt;__proto__&lt;/code&gt;  属性，指向它的原型对象。这形成了一个单向链表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对象 A 的  &lt;code&gt;__proto__&lt;/code&gt;  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.36687em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 原型对象 B&lt;/li&gt;
+&lt;li&gt;原型对象 B 的  &lt;code&gt;__proto__&lt;/code&gt;  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.36687em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 原型对象 C&lt;/li&gt;
+&lt;li&gt;... 一直往上指，直到 &lt;strong&gt; &lt;code&gt;Object.prototype&lt;/code&gt; &lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;Object.prototype.__proto__&lt;/code&gt;  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;→&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\rightarrow&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.36687em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mrel&#34;&gt;→&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;  &lt;code&gt;null&lt;/code&gt; &lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;结论：原型链是有终点的，它的尽头是  &lt;code&gt;null&lt;/code&gt; 。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-function-与-object&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-function-与-object&#34;&gt;#&lt;/a&gt; 2.  &lt;code&gt;Function&lt;/code&gt;  与  &lt;code&gt;Object&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;这是最绕的地方，但逻辑其实很纯粹：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;函数也是对象&lt;/strong&gt;：所有的函数（包括  &lt;code&gt;Object()&lt;/code&gt; 、 &lt;code&gt;Array()&lt;/code&gt;  以及你写的自定义函数）都是由  &lt;code&gt;Function&lt;/code&gt;  构造函数实例化的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自己生自己&lt;/strong&gt;： &lt;code&gt;Function&lt;/code&gt;  作为一个函数，它也是由  &lt;code&gt;Function&lt;/code&gt;  产生的，所以  &lt;code&gt;Function.__proto__ === Function.prototype&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;殊途同归&lt;/strong&gt;： &lt;code&gt;Function.prototype&lt;/code&gt;  本质上也是一个普通对象。既然是对象，它的  &lt;code&gt;__proto__&lt;/code&gt;  最终也要认祖归宗，指向  &lt;code&gt;Object.prototype&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;三-当-object-遇见-function&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三-当-object-遇见-function&#34;&gt;#&lt;/a&gt; 三、 当  &lt;code&gt;Object&lt;/code&gt;  遇见  &lt;code&gt;Function&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;我们可以把 JS 的原型体系看作两套交织的系统：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;身份&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;属性&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;逻辑关系&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;实例身份&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;__proto__&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;向上寻找继承的方法（如  &lt;code&gt;toString&lt;/code&gt; ,  &lt;code&gt;call&lt;/code&gt; ）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;strong&gt;构造者身份&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;prototype&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;向下传递共享的方法（如  &lt;code&gt;Array.push&lt;/code&gt; ,  &lt;code&gt;Object.keys&lt;/code&gt; ）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;验证你的直觉&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#验证你的直觉&#34;&gt;#&lt;/a&gt; 验证你的直觉&lt;/h3&gt;
+&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;figcaption data-lang=&#34;javascript&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 1. 所有的函数都是 Function 的实例&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Object&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__proto__ &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Number&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__proto__ &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 2. Function 本身也是 Function 的实例&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;Function&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__proto__ &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 3. 原型对象本质也是对象，最终指向 Object.prototype&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Function&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__proto__ &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 4. 终点&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;console&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;prototype&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;__proto__ &lt;span class=&#34;token operator&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://hhhvvb.github.io/2025/10/01/advice/</guid>
             <title>关于厦门理工学院大一备战算法竞赛的一些建议</title>
