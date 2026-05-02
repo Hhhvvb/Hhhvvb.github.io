@@ -1,0 +1,45 @@
+alternate: Hhhvvb
+
+loader:
+  start: false # 关闭初次打开页面的加载动画，防止因网络导致一直卡着
+  switch: false # 关闭 tab 切换页面的加载动画
+
+css: css
+js: js
+images: images
+
+sidebar:
+  position: left #侧边栏位置，right 会将头像和菜单移到右边
+  avatar: avatar.jpg #头像文件名	
+
+social:
+  github: https://github.com/Hhhvvb || github || "#191717"
+  qq: 1193738152 || qq || "#191717"
+
+	
+menu:
+  home: / || home
+  about: /about/ || user
+  posts:
+    default: / || feather
+    archives: /archives/ || list-alt
+    categories: /categories/ || th
+    tags: /tags/ || tags
+
+# 页脚配置
+footer:
+  since: 2025 #你的博客的创建年份
+  icon:
+    name: Hhhvvb
+    # Change the color of icon， using Hex Code.
+    color: "#ffc0cb"
+  # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+  count: true
+  powered: true
+post:
+  # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+  count: true
+
+widgets:
+  random_posts: true # 显示随机文章
+  recent_comments: true # 显示最近评论
