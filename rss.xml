@@ -10,16 +10,102 @@
         </author>
         <description>Hhhvvb的博客</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 07 May 2026 16:14:37 +0800</pubDate>
-        <lastBuildDate>Thu, 07 May 2026 16:14:37 +0800</lastBuildDate>
+        <pubDate>Tue, 12 May 2026 14:53:12 +0800</pubDate>
+        <lastBuildDate>Tue, 12 May 2026 14:53:12 +0800</lastBuildDate>
         <category term="博客" />
         <category term=" 笔记" />
+        <item>
+            <guid isPermalink="true">https://hhhvvb.github.io/2026/05/12/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-HTTPS/</guid>
+            <title>深入浅出 HTTPS</title>
+            <link>https://hhhvvb.github.io/2026/05/12/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-HTTPS/</link>
+            <category term="网络" scheme="https://hhhvvb.github.io/categories/%E7%BD%91%E7%BB%9C/" />
+            <category term="基础" scheme="https://hhhvvb.github.io/tags/%E5%9F%BA%E7%A1%80/" />
+            <category term="网络" scheme="https://hhhvvb.github.io/tags/%E7%BD%91%E7%BB%9C/" />
+            <pubDate>Tue, 12 May 2026 14:53:12 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;深入浅出-https从明文裸奔到安全锁的演进之路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深入浅出-https从明文裸奔到安全锁的演进之路&#34;&gt;#&lt;/a&gt; 深入浅出 HTTPS：从明文 “裸奔” 到安全锁的演进之路&lt;/h1&gt;
+&lt;p&gt;在互联网的早期，数据在网络中就像是在明信片上写字，任何人都能在传输途中一窥究竟。为了解决这个问题，HTTPS 应运而生。本文将深度解析 HTTPS 的工作原理，揭开它安全防线的神秘面纱。&lt;/p&gt;
+&lt;h2 id=&#34;一-http-的原罪为什么要升级-https&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-http-的原罪为什么要升级-https&#34;&gt;#&lt;/a&gt; 一、 HTTP 的 “原罪”：为什么要升级 HTTPS？&lt;/h2&gt;
+&lt;p&gt;HTTP 协议在设计之初并没有考虑安全性，它存在三个致命风险：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;窃听风险 (Eavesdropping)&lt;/strong&gt;：通信内容是明文传输的，中间节点（路由器、ISP）可以直接查看敏感信息（如密码、银行卡号）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;篡改风险 (Tampering)&lt;/strong&gt;：内容可能在传输中被拦截并修改，而接收方对此一无所知。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;冒充风险 (Pretending)&lt;/strong&gt;：你无法确定你访问的 “淘宝” 真的是官方网站，还是黑客伪造的钓鱼页面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;HTTPS (HTTP over SSL/TLS)&lt;/strong&gt; 的出现，就是为了给 HTTP 套上一层 “防弹衣”。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;二-https-的三件法宝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-https-的三件法宝&#34;&gt;#&lt;/a&gt; 二、 HTTPS 的三件法宝&lt;/h2&gt;
+&lt;p&gt;HTTPS 并非发明了全新的传输协议，而是在 HTTP 层之下引入了 SSL/TLS 协议层。它主要依靠以下三个核心技术：&lt;/p&gt;
+&lt;h3 id=&#34;1-混合加密保护机密性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-混合加密保护机密性&#34;&gt;#&lt;/a&gt; 1. 混合加密（保护机密性）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对称加密&lt;/strong&gt;：加密和解密用同一把钥匙。优点是快，缺点是密钥无法安全地交给对方。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非对称加密&lt;/strong&gt;：公钥加密，私钥解密。优点是安全，缺点是计算慢。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HTTPS 策略&lt;/strong&gt;：结合两者优点。在连接初期使用&lt;strong&gt;非对称加密&lt;/strong&gt;来安全地交换 “对称密钥”，一旦密钥交换成功，后续的数据传输全部使用速度更快的&lt;strong&gt;对称加密&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-摘要算法保证完整性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-摘要算法保证完整性&#34;&gt;#&lt;/a&gt; 2. 摘要算法（保证完整性）&lt;/h3&gt;
+&lt;p&gt;对数据进行哈希运算（如 SHA-256），生成一个唯一的 “指纹”。如果数据在途中被篡改，生成的指纹就会对不上，接收方立即就能发现。&lt;/p&gt;
+&lt;h3 id=&#34;3-数字证书与-ca解决信任问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-数字证书与-ca解决信任问题&#34;&gt;#&lt;/a&gt; 3. 数字证书与 CA（解决信任问题）&lt;/h3&gt;
+&lt;p&gt;为了防止黑客在握手阶段冒充服务器发一个假公钥，我们需要一个权威的 “公证处”——&lt;strong&gt;CA (Certificate Authority)&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器会向 CA 申请一张 &lt;strong&gt;数字证书&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;证书里包含了服务器的公钥和身份信息，并由 CA 进行数字签名。&lt;/li&gt;
+&lt;li&gt;浏览器内置了信任的 CA 公钥，可以验证证书的真实性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;三-https-的接头仪式tls-握手过程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三-https-的接头仪式tls-握手过程&#34;&gt;#&lt;/a&gt; 三、 HTTPS 的 “接头仪式”：TLS 握手过程&lt;/h2&gt;
+&lt;p&gt;以目前最常用的 TLS 1.2 为例，建立安全连接需要 “四次对话”，其核心目标是协商出一个&lt;strong&gt;会话密钥 (Session Key)&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;第一步client-hello客户端打招呼&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第一步client-hello客户端打招呼&#34;&gt;#&lt;/a&gt; 第一步：Client Hello（客户端打招呼）&lt;/h3&gt;
+&lt;p&gt;客户端向服务器发送：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持的 TLS 版本。&lt;/li&gt;
+&lt;li&gt;支持的加密套件列表。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机数 A&lt;/strong&gt;（明文）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;第二步server-hello服务器回应&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第二步server-hello服务器回应&#34;&gt;#&lt;/a&gt; 第二步：Server Hello（服务器回应）&lt;/h3&gt;
+&lt;p&gt;服务器向客户端发送：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确认使用的 TLS 版本和加密套件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机数 B&lt;/strong&gt;（明文）。&lt;/li&gt;
+&lt;li&gt;服务器的 &lt;strong&gt;数字证书&lt;/strong&gt;（内含服务器公钥）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;第三步客户端验证与密钥交换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三步客户端验证与密钥交换&#34;&gt;#&lt;/a&gt; 第三步：客户端验证与密钥交换&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;验明正身&lt;/strong&gt;：客户端用系统自带的 CA 公钥验证证书。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传递暗号&lt;/strong&gt;：验证通过后，客户端生成第三个&lt;strong&gt;随机数 C (Pre-Master Secret)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上锁&lt;/strong&gt;：客户端取出证书里的服务器公钥，把随机数 C 加密成密文发给服务器。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;第四步服务器确认&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第四步服务器确认&#34;&gt;#&lt;/a&gt; 第四步：服务器确认&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;服务器用自己的 &lt;strong&gt;私钥&lt;/strong&gt; 解开密文，拿到随机数 C。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合成密钥&lt;/strong&gt;：此时，客户端和服务器手里都有了 &lt;strong&gt;A、B、C&lt;/strong&gt; 三个随机数。双方各自运行相同的算法，拼凑出最终的 &lt;strong&gt;会话密钥&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;握手结束&lt;/strong&gt;：服务器发送一个确认信息，后续所有通信都将使用该会话密钥进行对称加密。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;四-深度思考为什么需要三个随机数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#四-深度思考为什么需要三个随机数&#34;&gt;#&lt;/a&gt; 四、 深度思考：为什么需要三个随机数？&lt;/h2&gt;
+&lt;p&gt;既然随机数 C 是用公钥加密发送的，中间人拿不到，那为什么不直接拿 C 当密钥？为什么非要 A 和 B 掺和进来？&lt;/p&gt;
+&lt;h3 id=&#34;1-防止重放攻击-replay-attack&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-防止重放攻击-replay-attack&#34;&gt;#&lt;/a&gt; 1. 防止 “重放攻击” (Replay Attack)&lt;/h3&gt;
+&lt;p&gt;如果只用 C，黑客虽然解不开 C，但他可以录下包含 C 的加密数据包，第二天原封不动地发给服务器。&lt;br /&gt;
+有了 A 和 B 这两个每次连接都随机生成的 “新鲜” 变量，即使 C 相同，最终算出来的会话密钥也会完全不同，黑客录下的包就失效了。&lt;/p&gt;
+&lt;h3 id=&#34;2-增加随机性的安全性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-增加随机性的安全性&#34;&gt;#&lt;/a&gt; 2. 增加随机性的安全性&lt;/h3&gt;
+&lt;p&gt;计算机生成的随机数往往是 “伪随机” 的。通过让客户端出 A 和 C，服务器出 B，这种 “分布式” 的随机数生成机制确保了最终密钥的随机性极高，极难被猜测。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;五-总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#五-总结&#34;&gt;#&lt;/a&gt; 五、 总结&lt;/h2&gt;
+&lt;p&gt;HTTPS 的安全堡垒是由多重机制构建的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CA 证书&lt;/strong&gt; 解决了 “你是谁” 的信任问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非对称加密&lt;/strong&gt; 解决了 “暗号怎么传” 的安全问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对称加密&lt;/strong&gt; 解决了 “效率” 问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;三个随机数&lt;/strong&gt; 解决了 “安全性与防攻击” 问题。&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://hhhvvb.github.io/2026/05/07/%E4%B8%89%E5%88%86%E9%92%9F%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-CSS-%E4%B8%AD%E7%9A%84-BFC/</guid>
             <title>三分钟彻底搞懂 CSS 中的 BFC</title>
             <link>https://hhhvvb.github.io/2026/05/07/%E4%B8%89%E5%88%86%E9%92%9F%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-CSS-%E4%B8%AD%E7%9A%84-BFC/</link>
-            <category term="CSS" scheme="https://hhhvvb.github.io/categories/CSS/" />
+            <category term="前端" scheme="https://hhhvvb.github.io/categories/%E5%89%8D%E7%AB%AF/" />
             <category term="CSS" scheme="https://hhhvvb.github.io/tags/CSS/" />
+            <category term="前端" scheme="https://hhhvvb.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+            <category term="基础" scheme="https://hhhvvb.github.io/tags/%E5%9F%BA%E7%A1%80/" />
             <pubDate>Thu, 07 May 2026 16:14:37 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;三分钟彻底搞懂-css-中的-bfc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#三分钟彻底搞懂-css-中的-bfc&#34;&gt;#&lt;/a&gt; 三分钟彻底搞懂 CSS 中的 BFC&lt;/h1&gt;
 &lt;h3 id=&#34;引言&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引言&#34;&gt;#&lt;/a&gt; 引言&lt;/h3&gt;
@@ -29,7 +115,7 @@
 &lt;li&gt;子元素设置了浮动，父盒子却像漏气一样，“高度塌陷” 变成了 0？&lt;/li&gt;
 &lt;li&gt;侧边栏浮动后，右边的内容像文字环绕一样钻到了左边下面？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这些问题的终极杀手锏，就是 &lt;strong&gt;BFC&lt;/strong&gt;（Block Formatting Context，块级格式化上下文）。&lt;/p&gt;
+&lt;p&gt;这些问题的终极杀手锏，就是 &lt;strong&gt;BFC（Block Formatting Context，块级格式化上下文）&lt;/strong&gt;。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h3 id=&#34;1-直观理解-bfc&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-直观理解-bfc&#34;&gt;#&lt;/a&gt; 1. 直观理解 BFC&lt;/h3&gt;
 &lt;p&gt;你可以把 BFC 当作页面上的一个 &lt;strong&gt;“隔离的独立容器”&lt;/strong&gt;。&lt;/p&gt;
@@ -73,8 +159,8 @@
             <title>深入理解 JavaScript 继承机制</title>
             <link>https://hhhvvb.github.io/2026/05/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-JavaScript-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6/</link>
             <category term="前端" scheme="https://hhhvvb.github.io/categories/%E5%89%8D%E7%AB%AF/" />
-            <category term="JavaScript" scheme="https://hhhvvb.github.io/tags/JavaScript/" />
             <category term="前端" scheme="https://hhhvvb.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+            <category term="JavaScript" scheme="https://hhhvvb.github.io/tags/JavaScript/" />
             <category term="继承" scheme="https://hhhvvb.github.io/tags/%E7%BB%A7%E6%89%BF/" />
             <pubDate>Sun, 03 May 2026 13:39:26 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;深入理解-javascript-继承机制从-es5-到-es6-的演进与底层逻辑&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#深入理解-javascript-继承机制从-es5-到-es6-的演进与底层逻辑&#34;&gt;#&lt;/a&gt; 深入理解 JavaScript 继承机制：从 ES5 到 ES6 的演进与底层逻辑&lt;/h1&gt;
@@ -136,8 +222,8 @@
             <title>彻底搞懂 JavaScript 原型与原型链</title>
             <link>https://hhhvvb.github.io/2026/05/02/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-JavaScript-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
             <category term="前端" scheme="https://hhhvvb.github.io/categories/%E5%89%8D%E7%AB%AF/" />
-            <category term="JavaScript" scheme="https://hhhvvb.github.io/tags/JavaScript/" />
             <category term="前端" scheme="https://hhhvvb.github.io/tags/%E5%89%8D%E7%AB%AF/" />
+            <category term="JavaScript" scheme="https://hhhvvb.github.io/tags/JavaScript/" />
             <category term="原型链" scheme="https://hhhvvb.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" />
             <pubDate>Sat, 02 May 2026 19:49:38 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;告别克苏鲁神话彻底搞懂-javascript-原型与原型链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#告别克苏鲁神话彻底搞懂-javascript-原型与原型链&#34;&gt;#&lt;/a&gt; 告别 “克苏鲁神话”：彻底搞懂 JavaScript 原型与原型链&lt;/h1&gt;
